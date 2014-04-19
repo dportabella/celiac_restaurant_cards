@@ -3,6 +3,7 @@ object Hi {
 
     val foDoc = buildFo("turkish")
     println(foDoc)
+    FOPUtils.buildPdf(foDoc)
   }
 
 
