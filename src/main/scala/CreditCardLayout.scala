@@ -1,9 +1,9 @@
-object Hi {
+object CreditCardLayout {
   def main(args: Array[String]) = {
 
     val foDoc = buildFo("turkish")
     println(foDoc)
-    FOPUtils.buildPdf(foDoc)
+    FOPHelper.buildPdf(foDoc)
   }
 
 
