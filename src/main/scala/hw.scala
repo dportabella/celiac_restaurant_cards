@@ -41,19 +41,19 @@ object Hi {
               { title } Gluten Free Restaurant Card
             </fo:block>
             <fo:block font-size={ parameters.size } font-family={ parameters.font } text-align="center" space-after={ parameters.space }>
-              { input \ "p1" }
+              { (input \ "p1")(0).child }
             </fo:block>
             <fo:block font-size={ parameters.size } font-family={ parameters.font } font-weight="bold" text-align="center" space-after={ parameters.space }>
-              { input \ "p2" }
+              { (input \ "p2")(0).child }
             </fo:block>
             <fo:block font-size={ parameters.size } font-family={ parameters.font } text-align="center" space-after={ parameters.space }>
-              { input \ "p3" }
+              { (input \ "p3")(0).child }
             </fo:block>
             <fo:block font-size={ parameters.size } font-family={ parameters.font } text-align="center" space-after={ parameters.thanksSpace }>
-              { input \ "p4" }
+              { (input \ "p4")(0).child }
             </fo:block>
             <fo:block font-size={ parameters.size } font-family={ parameters.font } font-weight="bold" text-align="center" space-after={ parameters.lastSpace }>
-              { input \ "p5" }
+              { (input \ "p5")(0).child }
             </fo:block>
             <fo:block font-size={ parameters.size } font-family={ parameters.font } text-align="center" space-after={ parameters.lastSpace }>
               © Copyright celiactravel.com
