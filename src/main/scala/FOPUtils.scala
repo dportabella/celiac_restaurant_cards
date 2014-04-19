@@ -53,8 +53,8 @@ http://www.codeproject.com/Articles/37663/PDF-Generation-using-XSLFO-and-FOP
 
 //From: http://snipplr.com/view/55854/convert-scala-xml-to-java-dom/
 import scala.xml.{Text, Elem, Node, Comment, Atom}
-implicit def nodeExtras(n: Node) = new NodeExtras(n)
-implicit def elemExtras(e: Elem) = new ElemExtras(e)
+//implicit def nodeExtras(n: Node) = new NodeExtras(n)
+//implicit def elemExtras(e: Elem) = new ElemExtras(e)
 
 object XmlHelpers {
   val docBuilder =
@@ -71,7 +71,7 @@ class NodeExtras(n: Node) {
           r.setAttribute(a.key, a.value.text)
         }
         for (c <- children) {
-          r.appendChild(c.toJdkNode(doc))
+          r.appendChild(new NodeExtras(c).toJdkNode(doc))
         }
         r
       case Text(text) => doc.createTextNode(text)
