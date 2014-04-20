@@ -26,6 +26,7 @@ object CreditCardLayout {
 
   case class Parameters(font: String = "Arial", strongAttribute: Attribute = boldAttribute, titleSize: String, size: String, titleSpace: String, space: String, thanksSpace: String, lastSpace: String)
 
+  // todo: implement a programmatic way to find out the optimal parameters, instead of setting these manually
   val parametersMap = Map(
     "english" -> Parameters(font="Arial",      strongAttribute=boldAttribute, titleSize="9.0pt", size="7.5pt", titleSpace="0.20cm", space="0.20cm", thanksSpace="0.38cm", lastSpace="0.10cm"),
     "catalan" -> Parameters(font="Arial",      strongAttribute=redAttribute,  titleSize="8.5pt", size="7.0pt", titleSpace="0.15cm", space="0.15cm", thanksSpace="0.30cm", lastSpace="0.05cm"),
