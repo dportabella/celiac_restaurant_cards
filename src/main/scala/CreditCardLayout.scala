@@ -64,7 +64,7 @@ object CreditCardLayout {
             { <fo:block font-size={ parameters.size } font-family={ parameters.font } text-align="center" space-after={ parameters.space }>
                 { convertParagraph("p2") }
               </fo:block> % parameters.strongAttribute
-            } 
+            }
             { <fo:block font-size={ parameters.size } font-family={ parameters.font } text-align="center" space-after={ parameters.space }>
                 { convertParagraph("p3") }
               </fo:block>
@@ -76,7 +76,7 @@ object CreditCardLayout {
             { <fo:block font-size={ parameters.size } font-family={ parameters.font } text-align="center" space-after={ parameters.lastSpace }>
                 { convertParagraph("p5") }
               </fo:block> % parameters.strongAttribute
-            } 
+            }
             { <fo:block font-size={ parameters.size } font-family={ parameters.font } text-align="center" space-after={ parameters.lastSpace }>
                 © Copyright celiactravel.com
               </fo:block>
