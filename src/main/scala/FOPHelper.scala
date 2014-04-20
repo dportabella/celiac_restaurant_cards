@@ -22,6 +22,7 @@ object FOPHelper {
   val transformer = factory.newTransformer()
 
   def buildPdf(node: Node, outputFile: File) {
+    println("buildPdf: " + outputFile)
     val out = new BufferedOutputStream(new FileOutputStream(outputFile))
     try {
       val fop = fopFactory.newFop("application/pdf", out)   // TODO: for some reason, it does compile with MimeConstants.MIME_PDF

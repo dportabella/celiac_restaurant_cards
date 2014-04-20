@@ -4,7 +4,8 @@ import scala.xml._
 object CreditCardLayout {
   def main(args: Array[String]) = {
 
-    buildPdf("english")
+    buildPdf("catalan")
+//    parametersMap.keys.foreach(buildPdf)
   }
 
 
@@ -14,6 +15,7 @@ object CreditCardLayout {
     outputDir.mkdirs()
     val foDoc = buildFo(language)
     println(foDoc)
+    writeToFile(new File(outputDir, language + ".fo"), foDoc.toString)
     FOPHelper.buildPdf(foDoc, new File(outputDir, language + ".pdf"))
   }
 
@@ -28,6 +30,7 @@ object CreditCardLayout {
     "catalan" -> Parameters(font="Arial",      strongAttribute=redAttribute,  titleSize="8.5pt", size="7.0pt", titleSpace="0.15cm", space="0.15cm", thanksSpace="0.30cm", lastSpace="0.05cm"),
     "turkish"  -> Parameters(font="Arial",     strongAttribute=boldAttribute, titleSize="9.0pt", size="7.0pt", titleSpace="0.20cm", space="0.15cm", thanksSpace="0.38cm", lastSpace="0.10cm"),
     "japanese" -> Parameters(font="MS Mincho", strongAttribute=redAttribute,  titleSize="8.0pt", size="6.7pt", titleSpace="0.20cm", space="0.20cm", thanksSpace="0.38cm", lastSpace="0.10cm")
+    // ... 54 languages in total
   )
 
   def buildFo(language: String): xml.Node = {
@@ -94,6 +97,12 @@ object CreditCardLayout {
       case other @ _ => other
     }
     nodes.map(updateStrong_)
+  }
+
+  def writeToFile(file: File, content: String) {
+    val writer = new java.io.BufferedWriter(new java.io.FileWriter(file))
+    writer.write(content)
+    writer.close()
   }
 
 }
