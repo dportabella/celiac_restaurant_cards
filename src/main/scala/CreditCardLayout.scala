@@ -1,12 +1,19 @@
+import java.io.File
+
 object CreditCardLayout {
   def main(args: Array[String]) = {
 
-    val foDoc = buildFo("turkish")
-    println(foDoc)
-    FOPHelper.buildPdf(foDoc)
+    buildPdf("turkish")
   }
 
+  val outputDir = new File("target/credit_card_layout")
 
+  def buildPdf(language: String) {
+    outputDir.mkdirs()
+    val foDoc = buildFo(language)
+    println(foDoc)
+    FOPHelper.buildPdf(foDoc, new File(outputDir, language + ".pdf"))
+  }
 
   case class Parameters(font: String = "Arial", titleSize: String, size: String, titleSpace: String, space: String, thanksSpace: String, lastSpace: String)
 
