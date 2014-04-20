@@ -4,7 +4,7 @@ import scala.xml._
 object CreditCardLayout {
   def main(args: Array[String]) = {
 
-    buildPdf("turkish")
+    buildPdf("english")
   }
 
 
@@ -24,7 +24,7 @@ object CreditCardLayout {
   case class Parameters(font: String = "Arial", strongAttribute: Attribute = boldAttribute, titleSize: String, size: String, titleSpace: String, space: String, thanksSpace: String, lastSpace: String)
 
   val parametersMap = Map(
-    "language" -> Parameters(font="Arial",     strongAttribute=boldAttribute, titleSize="9pt", size="7.5pt", titleSpace="0.20cm", space="0.20cm", thanksSpace="0.38cm", lastSpace="0.1cm"),
+    "english" -> Parameters(font="Arial",     strongAttribute=boldAttribute, titleSize="9pt", size="7.5pt", titleSpace="0.20cm", space="0.20cm", thanksSpace="0.38cm", lastSpace="0.1cm"),
     "turkish"  -> Parameters(font="Arial",     strongAttribute=boldAttribute, titleSize="9pt", size="7.0pt", titleSpace="0.20cm", space="0.15cm", thanksSpace="0.38cm", lastSpace="0.1cm"),
     "japanese" -> Parameters(font="MS Mincho", strongAttribute=redAttribute,  titleSize="8pt", size="6.7pt", titleSpace="0.20cm", space="0.20cm", thanksSpace="0.38cm", lastSpace="0.1cm")
   )
