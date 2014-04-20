@@ -1,11 +1,12 @@
-import java.io.File
+import java.io.{FileNotFoundException, File}
 import scala.xml._
 
 object CreditCardLayout {
   def main(args: Array[String]) = {
 
-    buildPdf("catalan")
-//    parametersMap.keys.foreach(buildPdf)
+    val languages = if (args.length > 0) args.toIterable else parametersMap.keys
+
+    languages.foreach(buildPdf)
   }
 
 
@@ -34,9 +35,11 @@ object CreditCardLayout {
   )
 
   def buildFo(language: String): xml.Node = {
-    val input = scala.xml.XML.load(getClass.getResourceAsStream(language + ".xml"))
+    val inputStream = getClass.getResourceAsStream(language + ".xml")
+    if (inputStream == null) throw new FileNotFoundException("language file not found: " + language)
+    val inputNode = scala.xml.XML.load(inputStream)
     val parameters = parametersMap(language)
-    buildFo(input, parameters, language)
+    buildFo(inputNode, parameters, language)
   }
 
   def buildFo(input: xml.Node, parameters: Parameters, language: String): xml.Node = {
