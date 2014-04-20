@@ -15,7 +15,7 @@ http://www.codeproject.com/Articles/37663/PDF-Generation-using-XSLFO-and-FOP
 object FOPHelper {
   val cfgBuilder = new DefaultConfigurationBuilder()
   // todo: this cfg should be built programmatically, instead of reading a file
-//  val cfg = cfgBuilder.build(getClass.getResourceAsStream("fop-config.xml"))
+  // val fopFactory = FopFactory.newInstance(getClass.getResource("fop-config.xml").toURI)  // todo: this does not work. bug apache-fo?
   val fopFactory = FopFactory.newInstance(new File("./src/main/resources/fop-config.xml"))  // todo: :(
 
   val factory = TransformerFactory.newInstance()
